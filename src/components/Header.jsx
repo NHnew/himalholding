@@ -16,9 +16,14 @@ import { HiMiniArrowRight } from "react-icons/hi2";
 const Header = () => {
 
     const [toggleMenu, setToggleMenu] = useState(false);
+    const [lang, setLang] = useState(false);
 
     const handleMenuToggle = () => {
         setToggleMenu(!toggleMenu);
+    };
+
+    const toggleLang = () => {
+        setLang(!lang);
     };
 
     return (
@@ -37,59 +42,63 @@ const Header = () => {
                                         </Link>
                                     </div>
                                     <div className={`menu d-flex ${toggleMenu ? 'active' : ''}`}>
-                                        <Link className='link d-flex align-items-center' to="/">
-                                            <div>
-                                                Ana Səhifə
-                                            </div>
-                                            <div className='menuRightArrow'>
-                                                <HiMiniArrowRight />
-                                            </div>
-                                        </Link>
-                                        <Link className='link d-flex align-items-center' to="/about">
-                                            <div>
-                                                Haqqımızda
-                                            </div>
-                                            <div className='menuRightArrow'>
-                                                <HiMiniArrowRight />
-                                            </div>
-                                        </Link>
-                                        <Link className='link d-flex align-items-center' to="/services">
-                                            <div>
-                                                Fəaliyyət Sahələri
-                                            </div>
-                                            <div className='menuRightArrow'>
-                                                <HiMiniArrowRight />
-                                            </div>
-                                        </Link>
-                                        <Link className='link d-flex align-items-center' to="/hr">
-                                            <div>
-                                                İnsan Resursları
-                                            </div>
-                                            <div className='menuRightArrow'>
-                                                <HiMiniArrowRight />
-                                            </div>
-                                        </Link>
-                                        <Link className='link d-flex align-items-center' to="/news">
-                                            <div>
-                                                Xəbərlər
-                                            </div>
-                                            <div className='menuRightArrow'>
-                                                <HiMiniArrowRight />
-                                            </div>
-                                        </Link>
-                                        <div className="lang d-flex align-items-center">
-                                            <div className='language m-2 fs-6'>EN</div>
-                                            <IoLanguageOutline className='fs-4' />
+                                        <div className='menuTop'>
+                                            <Link className='link d-flex align-items-center' to="/">
+                                                <div>
+                                                    Ana Səhifə
+                                                </div>
+                                                <div className='menuRightArrow'>
+                                                    <HiMiniArrowRight />
+                                                </div>
+                                            </Link>
+                                            <Link className='link d-flex align-items-center' to="/about">
+                                                <div>
+                                                    Haqqımızda
+                                                </div>
+                                                <div className='menuRightArrow'>
+                                                    <HiMiniArrowRight />
+                                                </div>
+                                            </Link>
+                                            <Link className='link d-flex align-items-center' to="/services">
+                                                <div>
+                                                    Fəaliyyət Sahələri
+                                                </div>
+                                                <div className='menuRightArrow'>
+                                                    <HiMiniArrowRight />
+                                                </div>
+                                            </Link>
+                                            <Link className='link d-flex align-items-center' to="/hr">
+                                                <div>
+                                                    İnsan Resursları
+                                                </div>
+                                                <div className='menuRightArrow'>
+                                                    <HiMiniArrowRight />
+                                                </div>
+                                            </Link>
+                                            <Link className='link d-flex align-items-center' to="/news">
+                                                <div>
+                                                    Xəbərlər
+                                                </div>
+                                                <div className='menuRightArrow'>
+                                                    <HiMiniArrowRight />
+                                                </div>
+                                            </Link>
                                         </div>
-                                        <div className="contact d-flex align-items-center">
-                                            <Link className='link me-2' to="/contact">Əlaqə</Link>
-                                            <FaPhoneAlt />
+                                        <div className='menuBottom'>
+                                            <div className="lang d-flex align-items-center">
+                                                <div onClick={toggleLang} className='language m-2 fs-6'>{lang ? "EN" : "AZ"}</div>
+                                                <IoLanguageOutline className='fs-3' />
+                                            </div>
+                                            <div className="contact d-flex align-items-center">
+                                                <Link className='link me-2' to="/contact">Əlaqə</Link>
+                                                <FaPhoneAlt />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div className='rightHeader d-flex align-items-center'>
                                     <div className="lang d-flex align-items-center">
-                                        <div className='m-2 fs-6'>EN</div>
+                                        <div onClick={toggleLang} className='m-2 fs-6'>{lang ? "EN" : "AZ"}</div>
                                         <IoLanguageOutline className='fs-4' />
                                     </div>
                                     <div className="contact d-flex align-items-center">
