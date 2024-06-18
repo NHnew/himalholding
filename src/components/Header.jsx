@@ -5,11 +5,8 @@ import { Link } from "react-router-dom";
 import { IoLanguageOutline } from "react-icons/io5";
 import { FaPhoneAlt } from "react-icons/fa";
 import { VscMenu } from "react-icons/vsc";
-import { IoMdClose } from "react-icons/io";
 import { HiMiniArrowRight } from "react-icons/hi2";
-
-
-
+import { TfiClose } from "react-icons/tfi";
 
 
 
@@ -106,7 +103,7 @@ const Header = () => {
                                         <FaPhoneAlt />
                                     </div>
                                     <div className="hamburgerMenuIcon" onClick={handleMenuToggle}>
-                                        {toggleMenu ? <IoMdClose /> : <VscMenu />}
+                                        {toggleMenu ? <TfiClose /> : <VscMenu />}
                                     </div>
                                 </div>
                             </div>
