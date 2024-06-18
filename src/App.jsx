@@ -5,6 +5,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import HR from './pages/HR';
 import News from './pages/News';
+import VideoCarusel from './components/VideoCarusel';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path='/hr' element={<HR />} />
         <Route path='/news' element={<News />} />
       </Routes>
+      <VideoCarusel />
     </BrowserRouter>
   );
 };

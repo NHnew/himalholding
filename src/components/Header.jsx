@@ -95,7 +95,7 @@ const Header = () => {
                                 </div>
                                 <div className='rightHeader d-flex align-items-center'>
                                     <div className="lang d-flex align-items-center">
-                                        <div onClick={toggleLang} className='m-2 fs-6'>{lang ? "EN" : "AZ"}</div>
+                                        <div onClick={toggleLang} className='m-2 fs-6'>{lang ? "AZ" : "EN"}</div>
                                         <IoLanguageOutline className='fs-4' />
                                     </div>
                                     <div className="contact d-flex align-items-center">
