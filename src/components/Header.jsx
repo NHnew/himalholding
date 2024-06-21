@@ -42,6 +42,11 @@ const Header = () => {
         { to: "/news", label: "Xəbərlər" }
     ];
 
+
+    const scrollTopFunc = () => {
+        window.scrollTo(0, 0);
+    };
+
     return (
         <>
             <header>
@@ -51,7 +56,7 @@ const Header = () => {
                             <div className='d-flex justify-content-between align-items-center'>
                                 <div className='leftHeader d-flex align-items-center'>
                                     <div className="logo">
-                                        <Link to="/" className='link' onClick={handleLinkClick}>
+                                        <Link to="/" className='link' onClick={scrollTopFunc}>
                                             <div className="imgbox">
                                                 <img className='logoImg' src={Logo} alt="" />
                                             </div>
