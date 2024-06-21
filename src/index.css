@@ -5,4 +5,13 @@
   outline: none;
   font-family: Benton Sans Light, sans-serif;
   user-select: none;
+  background-color: #000;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+section {
+  padding: 50px 0;
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../sass/Header.sass';
 import Logo from '../assets/himal-logo-white.png';
 import { Link } from "react-router-dom";
@@ -8,12 +8,17 @@ import { VscMenu } from "react-icons/vsc";
 import { HiMiniArrowRight } from "react-icons/hi2";
 import { TfiClose } from "react-icons/tfi";
 
-
-
 const Header = () => {
-
     const [toggleMenu, setToggleMenu] = useState(false);
     const [lang, setLang] = useState(false);
+
+    useEffect(() => {
+        if (toggleMenu) {
+            document.body.classList.add('no-scroll');
+        } else {
+            document.body.classList.remove('no-scroll');
+        }
+    }, [toggleMenu]);
 
     const handleMenuToggle = () => {
         setToggleMenu(!toggleMenu);
@@ -22,6 +27,20 @@ const Header = () => {
     const toggleLang = () => {
         setLang(!lang);
     };
+
+    const handleLinkClick = () => {
+        if (toggleMenu) {
+            handleMenuToggle();
+        }
+    };
+
+    const menuItems = [
+        { to: "/", label: "Ana Səhifə" },
+        { to: "/about", label: "Haqqımızda" },
+        { to: "/services", label: "Fəaliyyət Sahələri" },
+        { to: "/hr", label: "İnsan Resursları" },
+        { to: "/news", label: "Xəbərlər" }
+    ];
 
     return (
         <>
@@ -32,7 +51,7 @@ const Header = () => {
                             <div className='d-flex justify-content-between align-items-center'>
                                 <div className='leftHeader d-flex align-items-center'>
                                     <div className="logo">
-                                        <Link to="/" className='link'>
+                                        <Link to="/" className='link' onClick={handleLinkClick}>
                                             <div className="imgbox">
                                                 <img className='logoImg' src={Logo} alt="" />
                                             </div>
@@ -40,46 +59,19 @@ const Header = () => {
                                     </div>
                                     <div className={`menu d-flex ${toggleMenu ? 'active' : ''}`}>
                                         <div className='menuTop'>
-                                            <Link className='link d-flex align-items-center' to="/">
-                                                <div>
-                                                    Ana Səhifə
-                                                </div>
-                                                <div className='menuRightArrow'>
-                                                    <HiMiniArrowRight />
-                                                </div>
-                                            </Link>
-                                            <Link className='link d-flex align-items-center' to="/about">
-                                                <div>
-                                                    Haqqımızda
-                                                </div>
-                                                <div className='menuRightArrow'>
-                                                    <HiMiniArrowRight />
-                                                </div>
-                                            </Link>
-                                            <Link className='link d-flex align-items-center' to="/services">
-                                                <div>
-                                                    Fəaliyyət Sahələri
-                                                </div>
-                                                <div className='menuRightArrow'>
-                                                    <HiMiniArrowRight />
-                                                </div>
-                                            </Link>
-                                            <Link className='link d-flex align-items-center' to="/hr">
-                                                <div>
-                                                    İnsan Resursları
-                                                </div>
-                                                <div className='menuRightArrow'>
-                                                    <HiMiniArrowRight />
-                                                </div>
-                                            </Link>
-                                            <Link className='link d-flex align-items-center' to="/news">
-                                                <div>
-                                                    Xəbərlər
-                                                </div>
-                                                <div className='menuRightArrow'>
-                                                    <HiMiniArrowRight />
-                                                </div>
-                                            </Link>
+                                            {menuItems.map(item => (
+                                                <Link
+                                                    key={item.to}
+                                                    className='link d-flex align-items-center'
+                                                    to={item.to}
+                                                    onClick={handleLinkClick}
+                                                >
+                                                    <div>{item.label}</div>
+                                                    <div className='menuRightArrow'>
+                                                        <HiMiniArrowRight />
+                                                    </div>
+                                                </Link>
+                                            ))}
                                         </div>
                                         <div className='menuBottom'>
                                             <div className="lang d-flex align-items-center">
@@ -87,7 +79,7 @@ const Header = () => {
                                                 <IoLanguageOutline className='fs-3' />
                                             </div>
                                             <div className="contact d-flex align-items-center">
-                                                <Link className='link me-2' to="/contact">Əlaqə</Link>
+                                                <Link className='link me-2' to="/contact" onClick={handleLinkClick}>Əlaqə</Link>
                                                 <FaPhoneAlt />
                                             </div>
                                         </div>
@@ -99,7 +91,7 @@ const Header = () => {
                                         <IoLanguageOutline className='fs-4' />
                                     </div>
                                     <div className="contact d-flex align-items-center">
-                                        <Link className='link me-2' to="/contact">Əlaqə</Link>
+                                        <Link className='link me-2' to="/contact" onClick={handleLinkClick}>Əlaqə</Link>
                                         <FaPhoneAlt />
                                     </div>
                                     <div className="hamburgerMenuIcon" onClick={handleMenuToggle}>
