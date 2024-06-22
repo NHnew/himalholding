@@ -1,0 +1,27 @@
+#section2
+    .textbox
+        width: 70%
+        color: #fff
+        p
+            font-size: 18px
+            margin: 20px 0 50px
+        span
+            font-weight: 700
+            margin-bottom: 15px
+        .link
+            text-decoration: none
+            color: #fff
+            font-size: 25px
+    .imgbox
+        overflow: hidden
+        img
+            transition: transform 0.9s ease
+            &:hover
+                cursor: pointer
+                transform: scale(1.1)
+
+@media screen and ( max-width: 768px  )
+    #section2
+        .textbox
+            width: 100%
+            margin: 20px 0 0 0 !important

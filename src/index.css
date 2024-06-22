@@ -14,7 +14,7 @@ body.no-scroll {
 }
 
 section {
-  padding: 50px 0;
+  padding: 80px 0;
 }
 
 body {
@@ -42,4 +42,8 @@ body::-webkit-scrollbar-thumb:hover {
 
 body::-webkit-scrollbar-thumb:active {
   background-color: #aaa;
+}
+
+.imgbox img {
+  width: 100%;
 }
